@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
@@ -14,8 +14,8 @@ const ScheduleScreen = () => {
     <View style={styles.background}>
       <Calendar style={styles.calendar}> </Calendar>
       <View style={styles.container}>
-        <View style={styles.backgroundShape}> </View>
-        <View style={styles.header}> My Shifts </View>
+        <Text style={styles.backgroundShape}> </Text>
+        <Text style={styles.header}> My Shifts </Text>
 
         <View style={styles.buttonContainer}>
           {/* Example usage of the ShiftButton component */}
