@@ -1,16 +1,29 @@
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import 'react-native-gesture-handler';
+import LoginScreen from './screens/Login';
 import CheckInScreen from './screens/CheckIn';
 import HomeScreen from './screens/Home';
 import ScheduleScreen from './screens/Schedule';
 import ShopScreen from './screens/Shop';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
+        <Stack.Screen name="Shop" component={ShopScreen} options={{ title: 'Shop' }} />
+        <Stack.Screen name="Schedule" component={ScheduleScreen} options={{ title: 'Schedule' }} />
+        <Stack.Screen name="CheckIn" component={CheckInScreen} options={{ title: 'CheckIn' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+/* 
 const NavigationBar = () => {
   return (
     <Tab.Navigator
@@ -38,7 +51,7 @@ const NavigationBar = () => {
       <Tab.Screen name="CheckIn" component={CheckInScreen} />
     </Tab.Navigator>
   );
-};
+}; 
 
 const App = () => {
   return (
@@ -46,6 +59,6 @@ const App = () => {
         <Stack.Screen name="Main" component={NavigationBar} />
       </Stack.Navigator>
   );
-};
+}; */
 
 export default App;
