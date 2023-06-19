@@ -1,46 +1,53 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
-import NavigationBar from '../Components/NavBar';
-import { useNavigation } from '@react-navigation/native';
+import React from "react";
+import { StatusBar, StyleSheet, Text, View, SafeAreaView } from "react-native";
+import NavigationBar from "../Components/NavBar";
+import { useNavigation } from "@react-navigation/native";
+import ProfileBar from "../Components/ProfileBar";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.safeAreaView}>
+      <ProfileBar navigation={navigation} />
       <StatusBar barStyle="dark-content" />
-      <View style={styles.appBar}>
-        {/*<Image
-          source={require('./profile-picture.jpg')}
-          style={styles.profilePicture}
-        />*/}
-        <Text style={styles.name}>John Doe</Text>
-        <Text style={styles.stars}>17 Stars</Text>
-      </View>
-      <View style={styles.starsBar}>
-        <Text style={styles.starsText}>You have 50 / 100 stars</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progress} />
+      <View style={styles.container}>
+        <View style={styles.appBar}>
+          {/*<Image
+            source={require('./profile-picture.jpg')}
+            style={styles.profilePicture}
+          />*/}
+          <Text style={styles.name}>John Doe</Text>
+          <Text style={styles.stars}>17 Stars</Text>
+        </View>
+        <View style={styles.starsBar}>
+          <Text style={styles.starsText}>You have 50 / 100 stars</Text>
+          <View style={styles.progressBar}>
+            <View style={styles.progress} />
+          </View>
+        </View>
+        <View style={styles.listView}>
+          <Text style={styles.sectionTitle}>Your Next Shift</Text>
+          <Text>Starbucks - Jem</Text>
+          <Text>9 June 2023, Friday 12:00 - 19:00 | 7h</Text>
+          <Text style={styles.sectionTitle}>Shift That Needs Help</Text>
+          <Text>Starbucks Jurong Point</Text>
+          <Text>10 June 2023, Saturday 15:00 - 23:00 | 8h</Text>
+          <Text>1 barista needed</Text>
         </View>
       </View>
-      <View style={styles.listView}>
-        <Text style={styles.sectionTitle}>Your Next Shift</Text>
-        <Text>Starbucks - Jem</Text>
-        <Text>9 June 2023, Friday 12:00 - 19:00 | 7h</Text>
-        <Text style={styles.sectionTitle}>Shift That Needs Help</Text>
-        <Text>Starbucks Jurong Point</Text>
-        <Text>10 June 2023, Saturday 15:00 - 23:00 | 8h</Text>
-        <Text>1 barista needed</Text>
-      </View>
-      <NavigationBar navigation={navigation}/> 
-    </View>
+      <NavigationBar navigation={navigation} />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   appBar: {
     // Styles for app bar
@@ -72,4 +79,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
