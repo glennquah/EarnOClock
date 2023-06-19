@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import userPool from "../AWS/UserPool";
 
 const Register = () => {
   const navigation = useNavigation();
@@ -44,10 +45,6 @@ const Register = () => {
       {
         Name: "address",
         Value: address
-      },
-      {
-        Name: "custom:organization",
-        Value: organization
       }
     ];
 

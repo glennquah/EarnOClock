@@ -41,29 +41,9 @@ const Login = () => {
 
     const attributeList = [
       {
-        Name: "name",
-        Value: username
-      },
-      {
         Name: "preferred_username",
         Value: username
       },
-      {
-        Name: "email",
-        Value: email
-      },
-      {
-        Name: "phone_number",
-        Value: phoneNumber
-      },
-      {
-        Name: "address",
-        Value: address
-      },
-      {
-        Name: "custom:organization",
-        Value: organization
-      }
     ];
 
     userPool.login(username, password, attributeList, null, (err, data) => {

@@ -1,24 +1,8 @@
-<<<<<<< Updated upstream
-import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-=======
-import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-
-
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-
-//screens
-import CheckInScreen from '../screens/CheckIn';
-import HomeScreen from '../screens/Home';
-import ScheduleScreen from '../screens/Schedule';
-import ShopScreen from '../screens/Shop';
->>>>>>> Stashed changes
 
 const Tab = createBottomTabNavigator();
 

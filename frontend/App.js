@@ -10,17 +10,17 @@ import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
 import VerifyEmail from "./screens/VerifyEmail";
 
+import Amplify from 'aws-amplify';
+import config from './src/aws-exports';
+
+Amplify.configure(config);
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Home" }}
-        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -34,6 +34,11 @@ const App = () => {
         <Stack.Screen
            name="VerifyEmail"
           component={VerifyEmail}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "Home" }}
         />
         <Stack.Screen
           name="Shop"
