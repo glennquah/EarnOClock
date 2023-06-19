@@ -7,6 +7,7 @@ import CheckInScreen from "./screens/CheckIn";
 import HomeScreen from "./screens/Home";
 import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
+import ProfileScreen from "./screens/Profile";
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,11 @@ const App = () => {
           name="CheckIn"
           component={CheckInScreen}
           options={{ title: "CheckIn" }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ title: "Profile" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

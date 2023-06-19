@@ -1,7 +1,8 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
-import NavigationBar from '../Components/NavBar';
-import { useNavigation } from '@react-navigation/native';
+import React from "react";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
+import NavigationBar from "../Components/NavBar";
+import { useNavigation } from "@react-navigation/native";
+import ProfileAppBar from "../Components/ProfileBar";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -10,6 +11,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.appBar}>
+        <ProfileAppBar />
         {/*<Image
           source={require('./profile-picture.jpg')}
           style={styles.profilePicture}
@@ -32,7 +34,7 @@ const HomeScreen = () => {
         <Text>10 June 2023, Saturday 15:00 - 23:00 | 8h</Text>
         <Text>1 barista needed</Text>
       </View>
-      <NavigationBar navigation={navigation}/> 
+      <NavigationBar navigation={navigation} />
     </View>
   );
 };
@@ -40,7 +42,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   appBar: {
     // Styles for app bar
@@ -72,4 +74,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-

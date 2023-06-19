@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
 
-const ScheduleScreen = () => {
+const ProfileScreen = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello, welcome to the Schedule page!</Text>
+      <Text style={styles.text}>Hello, welcome to the Profile page!</Text>
       <NavigationBar navigation={navigation} />
     </View>
   );
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ScheduleScreen;
+export default ProfileScreen;
