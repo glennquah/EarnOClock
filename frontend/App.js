@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
@@ -72,13 +73,29 @@ const NavigationBar = () => {
     </Tab.Navigator>
   );
 }; 
+=======
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import 'react-native-gesture-handler';
+import Login from './screens/Login';
+import RegisterPage from './screens/Register';
+import VerifyEmail from './screens/VerifyEmail';
+
+const Stack = createStackNavigator();
+>>>>>>> Stashed changes
 
 const App = () => {
   return (
+    <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main" component={NavigationBar} />
+        <Stack.Screen name="Register" component={RegisterPage} options={{ title: 'Register' }} />
+        <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
+    </NavigationContainer>
   );
 }; */
+
 
 export default App;
