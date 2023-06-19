@@ -1,10 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import CheckInScreen from './screens/CheckIn';
-import HomeScreen from './screens/Home';
-import ScheduleScreen from './screens/Schedule';
-import ShopScreen from './screens/Shop';
+import CheckInScreen from '../screens/CheckIn';
+import HomeScreen from '../screens/Home';
+import ScheduleScreen from '../screens/Schedule';
+import ShopScreen from '../screens/Shop';
 
 const Tab = createBottomTabNavigator();
 

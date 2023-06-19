@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import NavigationBar from '../Components/NavBar';
 
 const HomeScreen = () => {
   return (
@@ -28,12 +29,7 @@ const HomeScreen = () => {
         <Text>10 June 2023, Saturday 15:00 - 23:00 | 8h</Text>
         <Text>1 barista needed</Text>
       </View>
-      <View style={styles.navigationBar}>
-        <Text>Home</Text>
-        <Text>Shop</Text>
-        <Text>Schedule</Text>
-        <Text>Check-in</Text>
-      </View>
+      <NavigationBar /> 
     </View>
   );
 };
@@ -44,55 +40,33 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   appBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-  },
-  profilePicture: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    // Styles for app bar
   },
   name: {
-    marginLeft: 8,
-    fontWeight: 'bold',
+    // Styles for name
   },
   stars: {
-    marginLeft: 8,
-    color: 'gold',
+    // Styles for stars
   },
   starsBar: {
-    padding: 16,
-    backgroundColor: '#f0f0f0',
+    // Styles for stars bar
   },
   starsText: {
-    marginBottom: 8,
+    // Styles for stars text
   },
   progressBar: {
-    height: 10,
-    backgroundColor: '#d0d0d0',
-    borderRadius: 5,
+    // Styles for progress bar
   },
   progress: {
-    height: '100%',
-    width: '50%', // Change this to dynamically represent the progress (e.g., based on stars)
-    backgroundColor: 'gold',
-    borderRadius: 5,
+    // Styles for progress
   },
   listView: {
-    padding: 16,
+    // Styles for list view
   },
   sectionTitle: {
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  navigationBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 16,
-    borderTopWidth: 1,
-    borderTopColor: '#ccc',
+    // Styles for section title
   },
 });
 
 export default HomeScreen;
+
