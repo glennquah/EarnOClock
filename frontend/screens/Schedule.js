@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import NavigationBar from '../Components/NavBar';
+import NavigationBar from '../Components/NavBar'
+import { useNavigation } from '@react-navigation/native';
 
 const ScheduleScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hello, welcome to the Schedule page!</Text>
-      <NavigationBar />
+      <NavigationBar navigation={navigation}/>
     </View>
   );
 };
