@@ -1,9 +1,6 @@
 import Icon from "react-native-vector-icons/Ionicons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-
-const Tab = createBottomTabNavigator();
 
 const NavBar = ({ navigation }) => {
   return (
@@ -39,33 +36,7 @@ const NavBar = ({ navigation }) => {
     </View>
   );
 };
-/* 
-const NavigationBar = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName;
-          if (route.name === 'Home') {
-            iconName = 'home';
-          } else if (route.name === 'Shop') {
-            iconName = 'cart';
-          } else if (route.name === 'Schedule') {
-            iconName = 'calendar';
-          } else if (route.name === 'CheckIn') {
-            iconName = 'checkmark-done';
-          }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-      })}
-    >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Shop" component={ShopScreen} />
-      <Tab.Screen name="Schedule" component={ScheduleScreen} />
-      <Tab.Screen name="CheckIn" component={CheckInScreen} />
-    </Tab.Navigator>
-  );
-}; */
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, SafeAreaView } from "react-native";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
@@ -11,6 +11,7 @@ import companyLogo from "../assets/starbucks.png";
 const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
+    <SafeAreaView style={styles.safeAreaView}>
     <View style={styles.background}>
       <Calendar style={styles.calendar}> </Calendar>
       <View style={styles.container}>
@@ -48,10 +49,14 @@ const ScheduleScreen = () => {
       </View>
       <NavigationBar navigation={navigation} />
     </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+  },
   background: {
     flex: 1,
     justifyContent: "center", // vertical alignment

@@ -21,11 +21,11 @@ const CheckInScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
+      <ProfileBar navigation={navigation} />
+      <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-        <ProfileBar navigation={navigation} />
-        <NavigationBar navigation={navigation} />
       </View>
+      <NavigationBar navigation={navigation} />
     </SafeAreaView>
   );
 };
