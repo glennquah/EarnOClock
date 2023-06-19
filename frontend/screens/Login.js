@@ -85,36 +85,6 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-<<<<<<< Updated upstream
-      <View style={styles.imageContainer}>
-      <Image source={require('../assets/logo_transparent.png')} style={styles.image} />
-      </View>
-      <Text style={styles.welcomeText}>Welcome back</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email or Username" // Modify the placeholder
-        onChangeText={text => setEmailOrUsername(text)}
-        value={emailOrUsername}
-        autoCapitalize="none"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        onChangeText={text => setPassword(text)}
-        value={password}
-        autoCapitalize="none"
-      />
-      <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-  {/* <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Register')}
-      >
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity> */}
-=======
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -164,7 +134,6 @@ const Login = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
->>>>>>> Stashed changes
     </View>
   );
 };
