@@ -1,66 +1,57 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import CheckInScreen from './screens/CheckIn';
+import HomeScreen from './screens/Home';
+import ScheduleScreen from './screens/Schedule';
+import ShopScreen from './screens/Shop';
+
+const Tab = createBottomTabNavigator();
 
 const NavigationBar = () => {
-  const navigation = useNavigation();
-
-  const handleHomePress = () => {
-    navigation.navigate('Home');
-  };
-
-  const handleShopPress = () => {
-    navigation.navigate('Shop');
-  };
-
-  const handleSchedulePress = () => {
-    navigation.navigate('Schedule');
-  };
-
-  const handleCheckInPress = () => {
-    navigation.navigate('CheckIn');
-  };
-
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.tab} onPress={handleHomePress}>
-        <Ionicons name="home-outline" size={24} color="black" />
-        <Text style={styles.label}>Home</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.tab} onPress={handleShopPress}>
-        <Ionicons name="cart-outline" size={24} color="black" />
-        <Text style={styles.label}>Shop</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.tab} onPress={handleSchedulePress}>
-        <Ionicons name="calendar-outline" size={24} color="black" />
-        <Text style={styles.label}>Schedule</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.tab} onPress={handleCheckInPress}>
-        <Ionicons name="checkmark-circle-outline" size={24} color="black" />
-        <Text style={styles.label}>Check-in</Text>
-      </TouchableOpacity>
-    </View>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'Shop') {
+            iconName = 'cart';
+          } else if (route.name === 'Schedule') {
+            iconName = 'calendar';
+          } else if (route.name === 'CheckIn') {
+            iconName = 'checkmark-done';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Shop" component={ShopScreen} />
+      <Tab.Screen name="Schedule" component={ScheduleScreen} />
+      <Tab.Screen name="CheckIn" component={CheckInScreen} />
+    </Tab.Navigator>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <View style={styles.container}>
+        <NavigationBar />
+      </View>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    height: 60,
-    borderTopWidth: 1,
-    borderTopColor: '#DDDDDD',
-  },
-  tab: {
-    alignItems: 'center',
-  },
-  label: {
-    fontSize: 12,
-    marginTop: 4,
+    flex: 1,
+    backgroundColor: '#fff',
   },
 });
 
-export default NavigationBar;
+export default App;
