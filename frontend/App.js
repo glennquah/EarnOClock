@@ -8,8 +8,8 @@ import LoginScreen from "./screens/Login";
 import RegisterPage from "./screens/Register";
 import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
-import ProfileScreen from "./screens/Profile";
 import VerifyEmail from "./screens/VerifyEmail";
+
 
 import Amplify from 'aws-amplify';
 import config from './src/aws-exports';
@@ -28,11 +28,14 @@ const App = () => {
           options={{ title: "Login" }}
         />
         <Stack.Screen
-          name="Register"
+           name="Register"
           component={RegisterPage}
-          options={{ title: "Register" }}
+           options={{ title: 'Register' }} 
         />
-        <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+        <Stack.Screen
+           name="VerifyEmail"
+          component={VerifyEmail}
+        />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -52,11 +55,6 @@ const App = () => {
           name="CheckIn"
           component={CheckInScreen}
           options={{ title: "CheckIn" }}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{ title: "Profile" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
