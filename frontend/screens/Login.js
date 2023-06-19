@@ -107,12 +107,12 @@ const LoginScreen = () => {
       <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+  {/* <TouchableOpacity
         style={styles.buttonContainer}
         onPress={() => navigation.navigate('Register')}
       >
         <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
