@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth, firestore } from '../firebase';
+import HomeScreen from '../screens/Home';
 
 const LoginScreen = () => {
   const [emailOrUsername, setEmailOrUsername] = useState(''); // Use a single state variable for email or username
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
 
   const navigation = useNavigation();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
+        setUser(user); // Update the user state
         setTimeout(() => {
           navigation.navigate('Home');
         }, 0);
@@ -21,56 +24,64 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
+
   const handleLogin = () => {
     firestore
-    .collection('users')
-    .where('email', '==', emailOrUsername)
-    .get()
-    .then(querySnapshot => {
-      if (querySnapshot.empty) {
-        // If no email matches, check for username
-        firestore
-          .collection('users')
-          .where('username', '==', emailOrUsername)
-          .get()
-          .then(querySnapshot => {
-            if (querySnapshot.empty) {
-              console.log('User not found!');
-            } else {
-              // Log in with the matched username
-              const userDoc = querySnapshot.docs[0];
-              const userData = userDoc.data();
-              auth
-                .signInWithEmailAndPassword(userData.email, password)
-                .then(() => {
-                  console.log('User successfully logged in!');
-                })
-                .catch(error => {
-                  console.log('Login error:', error);
-                });
-            }
-          })
-          .catch(error => {
-            console.log('Query error:', error);
-          });
-      } else {
-        // Log in with the matched email
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        auth
-          .signInWithEmailAndPassword(userData.email, password)
-          .then(() => {
-            console.log('User successfully logged in!');
-          })
-          .catch(error => {
-            console.log('Login error:', error);
-          });
-      }
-    })
-    .catch(error => {
-      console.log('Query error:', error);
-    });
+      .collection('users')
+      .where('email', '==', emailOrUsername)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.empty) {
+          // If no email matches, check for username
+          firestore
+            .collection('users')
+            .where('username', '==', emailOrUsername)
+            .get()
+            .then(querySnapshot => {
+              if (querySnapshot.empty) {
+                console.log('User not found!');
+              } else {
+                // Log in with the matched username
+                const userDoc = querySnapshot.docs[0];
+                const userData = userDoc.data();
+                auth
+                  .signInWithEmailAndPassword(userData.email, password)
+                  .then(() => {
+                    setUser(userData); // Set the user state
+                    console.log('User successfully logged in!');
+                  })
+                  .catch(error => {
+                    console.log('Login error:', error);
+                  });
+              }
+            })
+            .catch(error => {
+              console.log('Query error:', error);
+            });
+        } else {
+          // Log in with the matched email
+          const userDoc = querySnapshot.docs[0];
+          const userData = userDoc.data();
+          auth
+            .signInWithEmailAndPassword(userData.email, password)
+            .then(() => {
+              setUser(userData); // Set the user state
+              console.log('User successfully logged in!');
+            })
+            .catch(error => {
+              console.log('Login error:', error);
+            });
+        }
+      })
+      .catch(error => {
+        console.log('Query error:', error);
+      });
   };
+  
+
+  if (user != null) {
+    return <HomeScreen />;
+  }
 
   return (
     <View style={styles.container}>
