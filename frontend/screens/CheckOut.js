@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StatusBar,
   StyleSheet,
@@ -8,15 +8,72 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
 import { Ionicons } from "@expo/vector-icons";
 
 const starbucksSource = require("../assets/starbucks.png");
 
-const CheckInScreen = () => {
+const CheckOutScreen = () => {
   const navigation = useNavigation();
+  const [timer, setTimer] = useState({ hours: 0, minutes: 0, seconds: 10 });
+  const [timerUp, setTimerUp] = useState(false);
+  const timerRef = useRef(null);
+
+  const startTimer = () => {
+    const countdownInterval = setInterval(() => {
+      setTimer((prevTimer) => {
+        const remainingSeconds =
+          prevTimer.hours * 3600 +
+          prevTimer.minutes * 60 +
+          prevTimer.seconds -
+          1;
+
+        if (remainingSeconds <= 0) {
+          setTimerUp(true);
+          clearInterval(countdownInterval);
+          timerRef.current = null;
+          return prevTimer;
+        }
+
+        const remainingHours = Math.floor(remainingSeconds / 3600);
+        const remainingMinutes = Math.floor((remainingSeconds % 3600) / 60);
+        const seconds = remainingSeconds % 60;
+
+        return {
+          hours: remainingHours,
+          minutes: remainingMinutes,
+          seconds: seconds,
+        };
+      });
+    }, 1000);
+
+    timerRef.current = countdownInterval;
+  };
+
+  useEffect(() => {
+    if (!timerRef.current) {
+      startTimer();
+    }
+
+    return () => {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const focusListener = navigation.addListener("focus", () => {
+      if (!timerRef.current && !timerUp) {
+        startTimer();
+      }
+    });
+
+    return () => {
+      focusListener.remove();
+    };
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -43,7 +100,23 @@ const CheckInScreen = () => {
           <View style={styles.backgroundTextRow}>
             <Ionicons name="star" size={24} color="gold" />
             <Text style={styles.backgroundText}>
-              You are an early bird! ( + 1 Star )
+              You are an early bird! (+1 Star)
+            </Text>
+          </View>
+          <View style={styles.backgroundTextRow}>
+            <Ionicons
+              name={timerUp ? "time" : "timer"}
+              size={24}
+              color={timerUp ? "green" : "red"}
+            />
+            <Text style={styles.backgroundText}>
+              {`Timer: ${timer.hours
+                .toString()
+                .padStart(2, "0")}h ${timer.minutes
+                .toString()
+                .padStart(2, "0")}m ${timer.seconds
+                .toString()
+                .padStart(2, "0")}s`}
             </Text>
           </View>
         </View>
@@ -67,10 +140,15 @@ const CheckInScreen = () => {
             </View>
           </View>
           <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate("CheckOut")}
+            style={[styles.button, !timerUp && styles.disabledButton]}
+            disabled={!timerUp}
           >
-            <Text style={styles.buttonText}>CHECK IN</Text>
+            <Text
+              style={styles.buttonText}
+              onPress={() => navigation.navigate("Shop")}
+            >
+              {timerUp ? "CHECK OUT" : "WORKING"}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -115,7 +193,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: "60%",
+    height: "50%",
     backgroundColor: "white",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -129,6 +207,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#00704A", // Starbucks green color
     justifyContent: "center",
     alignItems: "center",
+  },
+  disabledButton: {
+    backgroundColor: "gray",
   },
   buttonText: {
     color: "white",
@@ -193,4 +274,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckInScreen;
+export default CheckOutScreen;
