@@ -1,11 +1,11 @@
-import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from "react-native";
-import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
-import ProfileBar from "../Components/ProfileBar";
-import Icon from "react-native-vector-icons/Ionicons";
-import Icon2 from "react-native-vector-icons/Feather";
+import React from "react";
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import Icon2 from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/Ionicons";
+import NavigationBar from "../Components/NavBar";
+import ProfileBar from "../Components/ProfileBar";
 
 
 const ShopScreen = () => {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: "center",
-    backgroundColor: "#FBF7EF",
+    backgroundColor: "#D2B48C",
   },
   backgroundImage: {
     flex: 1,
