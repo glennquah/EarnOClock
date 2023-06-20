@@ -4,10 +4,10 @@ import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
 import ProfileBar from "../Components/ProfileBar";
 
-import HelpButton from'../Components/HelpButton';
-import NextShiftButton from'../Components/NextShiftButton';
-import ThisWeeksPoints from'../Components/ThisWeeksPoints';
-import ProgressBar from'../Components/ProgressBar';
+import HelpButton from'./HelpButton';
+import NextShiftButton from'./NextShiftButton';
+import ThisWeeksPoints from'./ThisWeeksPoints';
+import ProgressBar from'./ProgressBar';
 
 const HomeScreen = () => {
 

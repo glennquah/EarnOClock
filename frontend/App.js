@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import "react-native-gesture-handler";
 import CheckInScreen from "./screens/CheckIn";
+import CheckOutScreen from "./screens/CheckOut";
 import HomeScreen from "./screens/Home";
 import LoginScreen from "./screens/Login";
 import ProfileScreen from "./screens/Profile";
@@ -21,6 +22,16 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="CheckOut"
+          component={CheckOutScreen}
+          options={{ title: "CheckOut" }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "Home" }}
+        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}

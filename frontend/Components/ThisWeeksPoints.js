@@ -1,17 +1,17 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const ThisWeeksPoints = () => {
   return (
     <View style={styles.container}>
       <View style={styles.leftContainer}>
         <Image
-          source={require("../assets/hand-gesture.png")} // Replace with the path to your image
+          source={require('./assets/hand-gesture.png')} // Replace with the path to your image
           style={styles.image}
         />
       </View>
       <View style={styles.rightContainer}>
-        <Text style={styles.totalPointsLabel}>This week's stars</Text>
+        <Text style={styles.totalPointsLabel}>Total Number of Points</Text>
         <Text style={styles.totalPointsValue}>20</Text>
       </View>
     </View>
@@ -20,10 +20,10 @@ const ThisWeeksPoints = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 16,
-    backgroundColor: "#F5FCFF",
+    backgroundColor: '#F5FCFF',
   },
   leftContainer: {
     marginRight: 16,
@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
   },
   totalPointsLabel: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 8,
   },
   totalPointsValue: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
 
