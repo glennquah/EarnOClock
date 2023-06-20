@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ShiftButton from "../Components/ShiftButton";
-import companyLogo from "../assets/starbucks";
+import companyLogo from "../assets/starbucks.png";
 
 const HelpButton = () => {
   return (

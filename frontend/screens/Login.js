@@ -1,9 +1,11 @@
-import { Ionicons } from "@expo/vector-icons"; // Import Ionicons from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
 import React, { useState } from "react";
 import {
   Image,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -11,7 +13,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import UserPool from "../AWS/UserPool";
+import userPool from "../AWS/UserPool";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -26,7 +28,7 @@ const Login = () => {
 
     const user = new CognitoUser({
       Username: username,
-      Pool: UserPool,
+      Pool: userPool,
     });
 
     const authDetails = new AuthenticationDetails({
@@ -40,26 +42,13 @@ const Login = () => {
         navigation.navigate("Home");
       },
       onFailure: (err) => {
-        console.error("onFailure:", err);
+        if (err.code === "UserNotConfirmedException") {
+          navigation.navigate("Home");
+        }
       },
       newPasswordRequired: (data) => {
         console.log("newPasswordRequired:", data);
       },
-    });
-
-    const attributeList = [
-      {
-        Name: "preferred_username",
-        Value: username,
-      },
-    ];
-
-    userPool.login(username, password, attributeList, null, (err, data) => {
-      if (err) {
-        console.error(err);
-      } else {
-        navigation.navigate("Home");
-      }
     });
   };
 
@@ -72,10 +61,14 @@ const Login = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         <Image
           source={require("../assets/logo_transparent.png")}
@@ -83,11 +76,11 @@ const Login = () => {
         />
         <Text style={styles.smallSignupText}>Login to your account</Text>
         <View style={styles.buttonContainerRow}>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
-            <Text style={styles.buttonText}>Employee</Text>
+          <TouchableOpacity style={[styles.button, styles.firstButton]} onPress={() => {}}>
+            <Text style={styles.buttonText}>  Employee  </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
-            <Text style={styles.buttonText}>Employer</Text>
+          <TouchableOpacity style={[styles.button, styles.firstButton]} onPress={() => {}}>
+            <Text style={styles.buttonText}>  Employer  </Text>
           </TouchableOpacity>
         </View>
         <TextInput
@@ -102,19 +95,23 @@ const Login = () => {
           placeholder="Username"
           style={styles.input}
         />
-        <TextInput
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          placeholder="Password"
-          secureTextEntry={!showPassword}
-          style={styles.input}
-        />
-        <Ionicons
-          name={showPassword ? "eye-off" : "eye"}
-          size={24}
-          color="gray"
-          onPress={togglePasswordVisibility}
-        />
+        <View style={styles.inputContainer}>
+          <TextInput
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            placeholder="Password"
+            secureTextEntry={!showPassword}
+            style={styles.passwordInput}
+          />
+          <TouchableOpacity onPress={togglePasswordVisibility}>
+            <Ionicons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              color="gray"
+              style={styles.eyeIcon}
+            />
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity style={styles.buttonContainer} onPress={onSubmit}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
@@ -125,7 +122,7 @@ const Login = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -152,10 +149,11 @@ const styles = StyleSheet.create({
   },
   buttonContainerRow: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 15,
   },
   button: {
-    flex: 1,
     height: 50,
     marginTop: 15,
     padding: 15,
@@ -163,6 +161,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
+    width: '35%',
+  },
+  firstButton: {
+    marginRight: 20,
+  },
+  secondButton: {
+    marginLeft: 20,
   },
   buttonText: {
     color: "#FFF",
@@ -178,19 +183,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  passwordContainer: {
+  inputContainer: {
+    width: "80%",
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
     marginBottom: 15,
+    backgroundColor: "#FFF",
+    borderRadius: 5,
   },
   passwordInput: {
     flex: 1,
-    marginBottom: 15,
+    height: 50,
     padding: 15,
-    backgroundColor: "#FFF",
-    borderRadius: 5,
-    marginRight: 8,
+  },
+  eyeIcon: {
+    padding: 15,
   },
   buttonContainer: {
     width: "80%",
