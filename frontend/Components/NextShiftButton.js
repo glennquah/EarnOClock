@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import ShiftButton from "./ShiftButton";
-import companyLogo from "./assets/starbucks.png";
+import companyLogo from "../assets/starbucks.png";
 
 const NextShiftButton = () => {
   return (
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
 
   background: {
+    borderRadius: 30,
     position: "absolute",
     top: 0,
     left: 0,

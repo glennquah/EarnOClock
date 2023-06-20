@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
-import ShiftDetailsButton from './ShiftDetailsButton';
+import ShiftDetailsButton from '../Components/ShiftDetailsButton';
 import companyLogo from './assets/starbucks.png';
 
 const ShiftDetailsPage = () => {
