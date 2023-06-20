@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import "react-native-gesture-handler";
 import CheckInScreen from "./screens/CheckIn";
+import HomeScreen from "./screens/Home";
 import LoginScreen from "./screens/Login";
 import ProfileScreen from "./screens/Profile";
 import RegisterPage from "./screens/Register";
@@ -20,11 +21,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-       {/* <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Home" }}
-        /> */}
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -35,6 +31,11 @@ const App = () => {
           component={RegisterPage}
           options={{ title: "Register" }}
         />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "Home" }}
+        /> 
         <Stack.Screen
           name="Shop"
           component={ShopScreen}

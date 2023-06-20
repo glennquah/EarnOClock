@@ -1,8 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
-import { useNavigation } from "@react-navigation/native";
+import ProfileBar from "../Components/ProfileBar";
 
 // Import the ShiftButton component
 import ShiftButton from "../Components/ShiftButton";
@@ -12,10 +13,12 @@ const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaView}>
+            <ProfileBar navigation={navigation} />
       <View style={styles.background}>
-        <Calendar style={styles.calendar}> </Calendar>
+
+        <Calendar style={styles.calendar} />
         <View style={styles.container}>
-          <Text style={styles.backgroundShape}> </Text>
+          <Text style={styles.backgroundShape} />
           <Text style={styles.header}> My Shifts </Text>
 
           <View style={styles.buttonContainer}>
@@ -47,8 +50,9 @@ const ScheduleScreen = () => {
             {/* Add more ShiftButton components as needed */}
           </View>
         </View>
-        <NavigationBar navigation={navigation} />
+
       </View>
+      <NavigationBar navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -59,9 +63,9 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: "center", // vertical alignment
-    alignItems: "center", // horizontal alignment
-    backgroundColor: "#D2B48C",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#D2B48C", // Set the background color to match HomeScreen
   },
 
   backgroundShape: {
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: "#FFFFFF", // Set your desired background shape color
+    backgroundColor: "#FBF7EF", // Set the background shape color to match HomeScreen
     shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -87,6 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "left",
     paddingBottom: 20,
     fontFamily: "Inter",
+    color: "#333333", // Set the text color to match HomeScreen
   },
 
   container: {
