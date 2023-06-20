@@ -7,6 +7,16 @@ import EmployeeShift from "./Components/EmployeeShift";
 import ClickedShift from "./Components/ClickedShift";
 import companyLogo from "./assets/starbucks.png";
 
+const shifts = [
+  {
+    logo: companyLogo,
+    store: "Starbucks",
+    branch: "JEM",
+    date: "19 June 2023",
+    timing: "09:00 - 17:00 | 8h",
+  },
+]
+
 export default function App() {
   return (
     <View style={styles.background}>
