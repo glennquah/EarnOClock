@@ -34,7 +34,7 @@ const CheckOutScreen = () => {
           setTimerUp(true);
           clearInterval(countdownInterval);
           timerRef.current = null;
-          return prevTimer;
+          return { hours: 0, minutes: 0, seconds: 0 };
         }
 
         const remainingHours = Math.floor(remainingSeconds / 3600);
@@ -142,11 +142,9 @@ const CheckOutScreen = () => {
           <TouchableOpacity
             style={[styles.button, !timerUp && styles.disabledButton]}
             disabled={!timerUp}
+            onPress={() => navigation.navigate("Shop")}
           >
-            <Text
-              style={styles.buttonText}
-              onPress={() => navigation.navigate("Shop")}
-            >
+            <Text style={styles.buttonText}>
               {timerUp ? "CHECK OUT" : "WORKING"}
             </Text>
           </TouchableOpacity>
