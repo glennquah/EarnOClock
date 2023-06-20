@@ -24,11 +24,6 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
-          name="CheckOut"
-          component={CheckOutScreen}
-          options={{ title: "CheckOut" }}
-        />
-        <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: "Home" }}
@@ -42,6 +37,12 @@ const App = () => {
           name="Register"
           component={RegisterPage}
           options={{ title: "Register" }}
+        />
+
+        <Stack.Screen
+          name="CheckOut"
+          component={CheckOutScreen}
+          options={{ title: "CheckOut" }}
         />
         <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
         <Stack.Screen
