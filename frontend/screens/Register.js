@@ -1,7 +1,17 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import userPool from "../AWS/UserPool";
 
 const Register = () => {
@@ -28,24 +38,24 @@ const Register = () => {
     const attributeList = [
       {
         Name: "name",
-        Value: username
+        Value: username,
       },
       {
         Name: "preferred_username",
-        Value: username
+        Value: username,
       },
       {
         Name: "email",
-        Value: email
+        Value: email,
       },
       {
         Name: "phone_number",
-        Value: phoneNumber
+        Value: phoneNumber,
       },
       {
         Name: "address",
-        Value: address
-      }
+        Value: address,
+      },
     ];
 
     userPool.signUp(username, password, attributeList, null, (err, data) => {
@@ -53,7 +63,7 @@ const Register = () => {
         console.error(err);
       } else {
         // Registration successful, navigate to the email verification screen
-        navigation.navigate('VerifyEmail');
+        navigation.navigate("Home");
       }
     });
   };
@@ -67,23 +77,29 @@ const Register = () => {
   };
 
   const goToLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate("Login");
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
-        <Image source={require('../assets/logo_transparent.png')} style={styles.image} />
+        <Image
+          source={require("../assets/logo_transparent.png")}
+          style={styles.image}
+        />
         <Text style={styles.smallSignupText}>Sign up for an account</Text>
         <View style={styles.buttonContainerRow}>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
-            <Text style={styles.buttonText}>Employee</Text>
+          <TouchableOpacity style={[styles.button, styles.firstButton]} onPress={() => {}}>
+            <Text style={styles.buttonText}>  Employee  </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
-            <Text style={styles.buttonText}>Employer</Text>
+          <TouchableOpacity style={[styles.button, styles.firstButton]} onPress={() => {}}>
+            <Text style={styles.buttonText}>  Employer  </Text>
           </TouchableOpacity>
         </View>
         <TextInput
@@ -116,12 +132,13 @@ const Register = () => {
           placeholder="Address"
           style={styles.input}
         />
+        <View style={styles.passwordContainer}>
           <TextInput
             value={password}
             onChangeText={(text) => setPassword(text)}
             placeholder="Password"
             secureTextEntry={!showPassword}
-            style={styles.input}
+            style={styles.passwordInput}
           />
           <Ionicons
             name={showPassword ? "eye-off" : "eye"}
@@ -129,12 +146,14 @@ const Register = () => {
             color="gray"
             onPress={togglePasswordVisibility}
           />
+        </View>
+        <View style={styles.passwordContainer}>
           <TextInput
             value={confirmPassword}
             onChangeText={(text) => setConfirmPassword(text)}
             placeholder="Confirm Password"
             secureTextEntry={!showConfirmPassword}
-            style={styles.input}
+            style={styles.passwordInput}
           />
           <Ionicons
             name={showConfirmPassword ? "eye-off" : "eye"}
@@ -142,6 +161,7 @@ const Register = () => {
             color="gray"
             onPress={toggleConfirmPasswordVisibility}
           />
+        </View>
         <TouchableOpacity style={styles.buttonContainer} onPress={onSubmit}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
@@ -152,86 +172,92 @@ const Register = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D2B48C',
+    backgroundColor: "#D2B48C",
   },
   scrollContainer: {
     flexGrow: 1,
     padding: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
-    width: '90%',
+    width: "90%",
     height: 150,
     marginBottom: 10,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   smallSignupText: {
     fontSize: 18,
     marginBottom: 30,
   },
   buttonContainerRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 15,
   },
   button: {
-    flex: 1,
     height: 50,
     marginTop: 15,
     padding: 15,
-    backgroundColor: '#808080',
+    backgroundColor: "#808080",
     borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    width: '35%',
+  },
+  firstButton: {
+    marginRight: 20,
+  },
+  secondButton: {
+    marginLeft: 20,
   },
   buttonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
+    color: "#FFF",
+    fontWeight: "bold",
   },
   input: {
-    width: '80%',
+    width: "80%",
     height: 50,
     marginBottom: 15,
     padding: 15,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     borderRadius: 5,
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   passwordContainer: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
+    width: "80%",
     marginBottom: 15,
+    padding: 15,
+    backgroundColor: "#FFF",
+    borderRadius: 5,
   },
   passwordInput: {
     flex: 1,
-    marginBottom: 15,
-    padding: 15,
-    backgroundColor: '#FFF',
-    borderRadius: 5,
+    height: 10,
     marginRight: 8,
   },
   buttonContainer: {
-    width: '80%',
+    width: "80%",
     height: 50,
     marginTop: 15,
     padding: 15,
-    backgroundColor: '#006400',
+    backgroundColor: "#006400",
     borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
+    color: "#FFF",
+    fontWeight: "bold",
   },
   loginContainer: {
     flexDirection: "row",
@@ -242,9 +268,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   loginButton: {
-    color: '#006400',
+    color: "#006400",
     marginLeft: 5,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 
