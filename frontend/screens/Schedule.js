@@ -12,43 +12,43 @@ const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaView}>
-    <View style={styles.background}>
-      <Calendar style={styles.calendar}> </Calendar>
-      <View style={styles.container}>
-        <Text style={styles.backgroundShape}> </Text>
-        <Text style={styles.header}> My Shifts </Text>
+      <View style={styles.background}>
+        <Calendar style={styles.calendar}> </Calendar>
+        <View style={styles.container}>
+          <Text style={styles.backgroundShape}> </Text>
+          <Text style={styles.header}> My Shifts </Text>
 
-        <View style={styles.buttonContainer}>
-          {/* Example usage of the ShiftButton component */}
-          <ShiftButton
-            logo={companyLogo}
-            branch="Starbucks - Jem"
-            role="Barista"
-            date="June 19, 2023"
-            timing="09:00 - 17:00 | 8h"
-          />
+          <View style={styles.buttonContainer}>
+            {/* Example usage of the ShiftButton component */}
+            <ShiftButton
+              logo={companyLogo}
+              branch="Starbucks - Jem"
+              role="Barista"
+              date="June 19, 2023"
+              timing="09:00 - 17:00 | 8h"
+            />
 
-          <ShiftButton
-            logo={companyLogo}
-            branch="Starbucks - IMM"
-            role="Cashier"
-            date="June 20, 2023"
-            timing="10:00 - 18:00 | 8h"
-          />
+            <ShiftButton
+              logo={companyLogo}
+              branch="Starbucks - IMM"
+              role="Cashier"
+              date="June 20, 2023"
+              timing="10:00 - 18:00 | 8h"
+            />
 
-          <ShiftButton
-            logo={companyLogo}
-            branch="Starbucks - Jem"
-            role="Barista"
-            date="June 22, 2023"
-            timing="12:00 - 19:00 | 7h"
-          />
+            <ShiftButton
+              logo={companyLogo}
+              branch="Starbucks - Jem"
+              role="Barista"
+              date="June 22, 2023"
+              timing="12:00 - 19:00 | 7h"
+            />
 
-          {/* Add more ShiftButton components as needed */}
+            {/* Add more ShiftButton components as needed */}
+          </View>
         </View>
+        <NavigationBar navigation={navigation} />
       </View>
-      <NavigationBar navigation={navigation} />
-    </View>
     </SafeAreaView>
   );
 };

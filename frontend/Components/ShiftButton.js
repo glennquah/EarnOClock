@@ -1,8 +1,8 @@
-import React from 'react';
-import { TouchableOpacity, Text, Image, View, StyleSheet } from 'react-native';
+import React from "react";
+import { TouchableOpacity, Text, Image, View, StyleSheet } from "react-native";
 
 // Import the company logo image
-import companyLogo from '../assets/starbucks.png';
+import companyLogo from "../assets/starbucks.png";
 
 const ShiftButton = ({ logo, branch, role, date, timing }) => {
   return (
@@ -33,20 +33,20 @@ const ShiftButton = ({ logo, branch, role, date, timing }) => {
 
 const styles = StyleSheet.create({
   button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#eaeaea',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#eaeaea",
     padding: 20,
     borderRadius: 20,
     marginBottom: 10,
   },
   leftContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   rightContainer: {
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
   },
   logo: {
     width: 30,
@@ -58,19 +58,19 @@ const styles = StyleSheet.create({
   },
   branch: {
     fontSize: 10,
-    color: '#666',
+    color: "#666",
   },
   role: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   date: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   timing: {
     fontSize: 10,
-    color: '#666',
+    color: "#666",
   },
 });
 

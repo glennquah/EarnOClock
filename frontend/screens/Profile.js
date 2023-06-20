@@ -8,10 +8,10 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello, welcome to the Profile page!</Text>
-    </View>
-    <NavigationBar navigation={navigation} />
+      <View style={styles.container}>
+        <Text style={styles.text}>Hello, welcome to the Profile page!</Text>
+      </View>
+      <NavigationBar navigation={navigation} />
     </SafeAreaView>
   );
 };
