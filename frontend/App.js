@@ -3,13 +3,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import "react-native-gesture-handler";
 import CheckInScreen from "./screens/CheckIn";
+import CheckOutScreen from "./screens/CheckOut";
 import HomeScreen from "./screens/Home";
 import LoginScreen from "./screens/Login";
 import ProfileScreen from "./screens/Profile";
 import RegisterPage from "./screens/Register";
 import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
-import CheckOutScreen from "./screens/CheckOut";
+//import TransactionHistoryScreen from "./screens/TransactionHistory";
 
 //import Amplify from "aws-amplify";
 //import config from "./src/aws-exports";

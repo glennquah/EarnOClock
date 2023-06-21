@@ -17,7 +17,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <ProfileBar navigation={navigation} />
+      <ProfileBar navigation={navigation} Style = {styles.profileBar} />
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <View style={styles.contentContainer}>
@@ -57,6 +57,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
+  },
+  profileBar: {
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    backgroundColor: '#D2B48C',
   },
 });
 
