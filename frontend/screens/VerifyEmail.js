@@ -1,8 +1,10 @@
 import { Auth } from "aws-amplify";
 import React, { useState } from "react";
-import { Button, SafeAreaView, Text, TextInput, View } from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const VerifyEmail = ({ navigation }) => { // Add navigation prop
+const VerifyEmail = ({ navigation }) => {
+  // Add navigation prop
   const [verificationCode, setVerificationCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -12,7 +14,7 @@ const VerifyEmail = ({ navigation }) => { // Add navigation prop
       // Verification successful, navigate to the next screen
       // You can redirect the user to a different screen or perform any other action here
       console.log("Verification successful");
-      navigation.navigate('Home');
+      navigation.navigate("Home");
     } catch (error) {
       setErrorMessage(error.message);
     }
