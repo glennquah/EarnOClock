@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View } from "react-native";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
@@ -13,9 +14,8 @@ const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaView}>
-            <ProfileBar navigation={navigation} />
+      <ProfileBar navigation={navigation} />
       <View style={styles.background}>
-
         <Calendar style={styles.calendar} />
         <View style={styles.container}>
           <Text style={styles.backgroundShape} />
@@ -50,7 +50,6 @@ const ScheduleScreen = () => {
             {/* Add more ShiftButton components as needed */}
           </View>
         </View>
-
       </View>
       <NavigationBar navigation={navigation} />
     </SafeAreaView>
@@ -88,13 +87,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "left",
+    alignItems: "flex-start",
     paddingBottom: 20,
-    fontFamily: "Inter",
     color: "#333333", // Set the text color to match HomeScreen
   },
 
   container: {
+    backgroundColor: "#FBF7EF",
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",

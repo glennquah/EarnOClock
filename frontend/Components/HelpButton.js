@@ -35,19 +35,19 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#EAEAEA",
+    backgroundColor: "#006400",
     paddingVertical: 5,
     paddingHorizontal: 117,
     borderRadius: 30,
   },
   buttonText: {
-    color: "#000000",
+    color: "white",
     fontSize: 12,
     fontWeight: "bold",
     textAlign: "center",
   },
   subText: {
-    color: "#000000",
+    color: "white",
     fontSize: 10,
     textAlign: "center",
     marginTop: 5,

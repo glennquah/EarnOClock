@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#D2B48C",
   },
   leftContainer: {
     marginRight: 16,
