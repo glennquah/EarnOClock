@@ -1,12 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native";
-import HelpButton from '../Components/HelpButton';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar, StyleSheet, View } from "react-native";
+import HelpButton from "../Components/HelpButton";
 import NavigationBar from "../Components/NavBar";
-import NextShiftButton from '../Components/NextShiftButton';
+import NextShiftButton from "../Components/NextShiftButton";
 import ProfileBar from "../Components/ProfileBar";
-import ProgressBar from '../Components/ProgressBar';
-import ThisWeeksPoints from '../Components/ThisWeeksPoints';
+import ProgressBar from "../Components/ProgressBar";
+import ThisWeeksPoints from "../Components/ThisWeeksPoints";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -21,20 +22,20 @@ const HomeScreen = () => {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <View style={styles.contentContainer}>
-          <ThisWeeksPoints/>
+          <ThisWeeksPoints />
           <ProgressBar
             totalPoints={totalPoints}
             goalPoints={goalPoints}
             progress={progress}
           />
-          <NextShiftButton/>
-          <HelpButton/>
+          <NextShiftButton />
+          <HelpButton />
         </View>
       </View>
       <NavigationBar navigation={navigation} style={styles.navigationBar} />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -42,21 +43,21 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    width: '100%',
-    alignItems: 'center',
-    backgroundColor: '#D2B48C',
-    position: 'relative',
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "#D2B48C",
+    position: "relative",
   },
   contentContainer: {
     flex: 1,
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   navigationBar: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
-    width: '100%',
+    width: "100%",
   },
 });
 

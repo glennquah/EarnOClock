@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View } from "react-native";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
+    backgroundColor: "#FBF7EF",
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
