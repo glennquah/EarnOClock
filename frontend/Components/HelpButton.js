@@ -32,10 +32,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 10,
+    alignSelf: "flex-start",
   },
 
   button: {
-    backgroundColor: "#006400",
+    backgroundColor: "#00704A",
     paddingVertical: 5,
     paddingHorizontal: 117,
     borderRadius: 30,

@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
@@ -106,9 +106,9 @@ const styles = StyleSheet.create({
   },
 
   calendar: {
-    width: "100%",
-    marginBottom: 20,
-  },
+    width: "80%", // Adjust the width as needed
+    height: 200, // Adjust the height as needed
+  },  
 });
 
 export default ScheduleScreen;

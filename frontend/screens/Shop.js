@@ -92,9 +92,10 @@ const ShopScreen = () => {
     <SafeAreaView style={styles.safeAreaView}>
       <ProfileBar navigation={navigation} />
       <View style={styles.container}>
-        <Image source={{ uri: 'https://picsum.photos/400' }} style={styles.backgroundImage} />
+        <Image source={{ uri: 'https://globalassets.starbucks.com/assets/92a2acfde0d74350bae518afe9928fea.jpg' }} style={styles.backgroundImage} />
         <MidBar /> 
         <View style={styles.whiteBox}>
+          <Text style={styles.title}>Recent Activity</Text>
           <View style={styles.history}>
             <FlatList
               data={TransactionHistoryInfo}
@@ -124,19 +125,20 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     width: '100%',
+    height: '100%', // Set the height to 100%
   },
   whiteBox: {
-    backgroundColor: '#FBF7EF',
+    backgroundColor: '#D2B48C',
     width: '100%',
     height: '70%',
     borderRadius: 10,
-    marginTop: 10,
+    // Remove marginTop: 10
   },
   history: {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '80%',
+    // Remove width: '80%'
     height: '90%',
     alignSelf: 'center',
     marginTop: 10,
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     flex: 1,
-    width: '100%',
+    width: '80%',
   },
   itemContainer: {
     flexDirection: 'row',
@@ -196,10 +198,11 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     marginLeft: 5,
+    alignItems: 'right',
   },
   activityStars: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'right',
   },
   activityText: {},
   activityTitle: {},
@@ -219,6 +222,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: 'flex-end',
     width: '80%',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 10,
+    alignSelf: "flex-start",
+    marginLeft: 20, // Add marginLeft: 20 to align with the container
   }
 });
 

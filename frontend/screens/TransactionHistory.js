@@ -1,5 +1,4 @@
 /*
-
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
@@ -215,5 +214,4 @@ const styles = StyleSheet.create({
 });
 
 export default TransactionHistoryScreen;
-
 */

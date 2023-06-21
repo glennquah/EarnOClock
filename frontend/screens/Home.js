@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import HelpButton from "../Components/HelpButton";
 import NavigationBar from "../Components/NavBar";
 import NextShiftButton from "../Components/NextShiftButton";
