@@ -13,9 +13,8 @@ const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaView}>
-            <ProfileBar navigation={navigation} />
+      <ProfileBar navigation={navigation} />
       <View style={styles.background}>
-
         <Calendar style={styles.calendar} />
         <View style={styles.container}>
           <Text style={styles.backgroundShape} />
@@ -50,7 +49,6 @@ const ScheduleScreen = () => {
             {/* Add more ShiftButton components as needed */}
           </View>
         </View>
-
       </View>
       <NavigationBar navigation={navigation} />
     </SafeAreaView>
@@ -88,9 +86,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "left",
+    alignItems: "flex-start",
     paddingBottom: 20,
-    fontFamily: "Inter",
     color: "#333333", // Set the text color to match HomeScreen
   },
 
