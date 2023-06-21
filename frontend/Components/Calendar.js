@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Button, Alert, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Calendar } from "react-native-calendars";
 
 const CalendarComponent = () => {
@@ -49,10 +49,12 @@ const styles = StyleSheet.create({
   calendarContainer: {
     borderRadius: 20,
     overflow: "hidden",
-    width: "120%",
+    width: 280, // adjust the width as desired
+    height: 260, // adjust the height as desired
   },
   calendar: {
     width: "100%",
+    height: "100%",
     backgroundColor: "#ffffff",
   },
 });

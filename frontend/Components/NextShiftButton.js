@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import ShiftButton from "./ShiftButton";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import companyLogo from "../assets/starbucks.png";
+import ShiftButton from "./ShiftButton";
 
 const NextShiftButton = () => {
   return (
@@ -15,6 +15,9 @@ const NextShiftButton = () => {
         date="June 19, 2023"
         timing="09:00 - 17:00 | 8h"
       />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>CHECK IN</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -31,6 +34,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 10,
+    alignSelf: "flex-start",
+  },
+  button: {
+    backgroundColor: "#00704A",
+    paddingVertical: 10,
+    paddingHorizontal: 100,
+    borderRadius: 30,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 12,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 
   background: {
