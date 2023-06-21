@@ -5,9 +5,9 @@ import {
   Text,
   View,
   Image,
-  SafeAreaView,
   TouchableOpacity,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
