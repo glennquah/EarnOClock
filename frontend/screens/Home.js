@@ -1,97 +1,69 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { StatusBar, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import HelpButton from "../Components/HelpButton";
+import NavigationBar from "../Components/NavBar";
+import NextShiftButton from "../Components/NextShiftButton";
+import ProfileBar from "../Components/ProfileBar";
+import ProgressBar from "../Components/ProgressBar";
+import ThisWeeksPoints from "../Components/ThisWeeksPoints";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  const totalPoints = 200; // Replace with the total number of points
+  const goalPoints = 150; // Replace with the goal number of points
+  const progress = 120; // Replace with the current progress
+
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" />
-      <View style={styles.appBar}>
-        {/*<Image
-          source={require('./profile-picture.jpg')}
-          style={styles.profilePicture}
-        />*/}
-        <Text style={styles.name}>John Doe</Text>
-        <Text style={styles.stars}>17 Stars</Text>
-      </View>
-      <View style={styles.starsBar}>
-        <Text style={styles.starsText}>You have 50 / 100 stars</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progress} />
+    <SafeAreaView style={styles.safeAreaView}>
+      <ProfileBar navigation={navigation} Style = {styles.profileBar} />
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.contentContainer}>
+          <ThisWeeksPoints />
+          <ProgressBar
+            totalPoints={totalPoints}
+            goalPoints={goalPoints}
+            progress={progress}
+          />
+          <NextShiftButton />
+          <HelpButton />
         </View>
       </View>
-      <View style={styles.listView}>
-        <Text style={styles.sectionTitle}>Your Next Shift</Text>
-        <Text>Starbucks - Jem</Text>
-        <Text>9 June 2023, Friday 12:00 - 19:00 | 7h</Text>
-        <Text style={styles.sectionTitle}>Shift That Needs Help</Text>
-        <Text>Starbucks Jurong Point</Text>
-        <Text>10 June 2023, Saturday 15:00 - 23:00 | 8h</Text>
-        <Text>1 barista needed</Text>
-      </View>
-      <View style={styles.navigationBar}>
-        <Text>Home</Text>
-        <Text>Shop</Text>
-        <Text>Schedule</Text>
-        <Text>Check-in</Text>
-      </View>
-    </View>
+      <NavigationBar navigation={navigation} style={styles.navigationBar} />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "#D2B48C",
+    position: "relative",
   },
-  appBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-  },
-  profilePicture: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-  name: {
-    marginLeft: 8,
-    fontWeight: 'bold',
-  },
-  stars: {
-    marginLeft: 8,
-    color: 'gold',
-  },
-  starsBar: {
-    padding: 16,
-    backgroundColor: '#f0f0f0',
-  },
-  starsText: {
-    marginBottom: 8,
-  },
-  progressBar: {
-    height: 10,
-    backgroundColor: '#d0d0d0',
-    borderRadius: 5,
-  },
-  progress: {
-    height: '100%',
-    width: '50%', // Change this to dynamically represent the progress (e.g., based on stars)
-    backgroundColor: 'gold',
-    borderRadius: 5,
-  },
-  listView: {
-    padding: 16,
-  },
-  sectionTitle: {
-    fontWeight: 'bold',
-    marginBottom: 8,
+  contentContainer: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   navigationBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 16,
-    borderTopWidth: 1,
-    borderTopColor: '#ccc',
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+  },
+  profileBar: {
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    backgroundColor: '#D2B48C',
   },
 });
 
