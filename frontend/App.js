@@ -10,12 +10,6 @@ import ProfileScreen from "./screens/Profile";
 import RegisterPage from "./screens/Register";
 import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
-//import TransactionHistoryScreen from "./screens/TransactionHistory";
-
-//import Amplify from "aws-amplify";
-//import config from "./src/aws-exports";
-
-//Amplify.configure(config);
 
 const Stack = createStackNavigator();
 
