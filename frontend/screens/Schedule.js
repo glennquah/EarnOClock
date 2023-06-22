@@ -22,7 +22,6 @@ const ScheduleScreen = () => {
           <Text style={styles.header}> My Shifts </Text>
 
           <View style={styles.buttonContainer}>
-            {/* Example usage of the ShiftButton component */}
             <ShiftButton
               logo={companyLogo}
               branch="Starbucks - Jem"
@@ -46,8 +45,6 @@ const ScheduleScreen = () => {
               date="June 22, 2023"
               timing="12:00 - 19:00 | 7h"
             />
-
-            {/* Add more ShiftButton components as needed */}
           </View>
         </View>
       </View>
@@ -64,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#D2B48C", // Set the background color to match HomeScreen
+    backgroundColor: "#D2B48C", 
   },
 
   backgroundShape: {
@@ -74,7 +71,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: "#FBF7EF", // Set the background shape color to match HomeScreen
+    backgroundColor: "#FBF7EF", 
     shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -89,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-start",
     paddingBottom: 20,
-    color: "#333333", // Set the text color to match HomeScreen
+    color: "#333333",
   },
 
   container: {
@@ -106,8 +103,8 @@ const styles = StyleSheet.create({
   },
 
   calendar: {
-    width: "80%", // Adjust the width as needed
-    height: 200, // Adjust the height as needed
+    width: "80%", 
+    height: 200, 
   },  
 });
 

@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: "#FFFFFF", // Set your desired background shape color
+    backgroundColor: "#FFFFFF", 
     shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,

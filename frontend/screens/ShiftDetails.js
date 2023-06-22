@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import ShiftDetailsButton from '../Components/ShiftDetailsButton';
 import companyLogo from './assets/starbucks.png';
 
@@ -7,17 +7,14 @@ const ShiftDetailsPage = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('./assets/starbucksstore.png')} // Replace with the path to your background image
+        source={require('./assets/starbucksstore.png')} 
         style={styles.backgroundImage}
         imageStyle={styles.imageStyle}>
         <View style={styles.header}>
           <View style={styles.leftContainer}>
-            {/* Display the company logo */}
             <Image source={companyLogo} style={styles.logo} />
             <View style={styles.textContainer}>
-              {/* Display the company branch */}
               <Text style={styles.store}> Starbucks </Text>
-              {/* Display the company role */}
               <Text style={styles.branch}> JEM </Text>
             </View>
           </View>

@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 const ThisWeeksPoints = () => {
   return (
     <View style={styles.container}>
       <View style={styles.leftContainer}>
         <Image
-          source={require("../assets/hand-gesture.png")} // Replace with the path to your image
+          source={require("../assets/hand-gesture.png")} 
           style={styles.image}
         />
       </View>

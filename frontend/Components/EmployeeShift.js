@@ -1,27 +1,19 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image, View, StyleSheet } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Import the company logo image
-import companyLogo from '../assets/starbucks.png';
 
 const EmployeeShift = ({role, name, timing }) => {
   return (
     <TouchableOpacity style={styles.button}>
       <View style={styles.leftContainer}>
-
         <View style={styles.textContainer}>
-          {/* Display the company branch */}
           <Text style={styles.role}>{role}</Text>
-
-          {/* Display the company role */}
           <Text style={styles.name}>{name}</Text>
         </View>
       </View>
-
       <View style={styles.rightContainer}>
-        {/* Display the date of the shift */}
         <Text style={styles.timing}>{timing}</Text>
-
       </View>
     </TouchableOpacity>
   );

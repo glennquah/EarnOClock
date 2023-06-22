@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
   calendarContainer: {
     borderRadius: 20,
     overflow: "hidden",
-    width: 280, // adjust the width as desired
-    height: 260, // adjust the height as desired
+    width: 280, 
+    height: 260, 
   },
   calendar: {
     width: "100%",

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import ShiftButton from "./ShiftButton";
 import companyLogo from "./assets/starbucks.png";
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: "#FFFFFF", // Set your desired background shape color
+    backgroundColor: "#FFFFFF", 
     shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,
