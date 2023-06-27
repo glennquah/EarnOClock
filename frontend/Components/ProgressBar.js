@@ -1,7 +1,8 @@
-import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { View, Image, StyleSheet, Text } from 'react-native';
 
-const ProgressBar = ({ totalPoints, goalPoints }) => {
+const ProgressBar = ({totalPoints, goalPoints}) => {
+
   // Calculate the progress percentage
   const progress = (goalPoints / totalPoints) * 100;
 
@@ -10,9 +11,9 @@ const ProgressBar = ({ totalPoints, goalPoints }) => {
       <Text style={styles.leftText}>Total No of Stars: {goalPoints}</Text>
       <View style={styles.progressBar}>
         <View style={[styles.progress, { width: `${progress}%` }]} />
-        <Image source={require("../assets/star.png")} style={styles.star} />
+        <Image source={require('./assets/star.png')} style={styles.star} />
       </View>
-      <Text style={styles.rightText}>Goal: {totalPoints}</Text>
+      <Text style={styles.rightText} >Goal: {totalPoints}</Text>
     </View>
   );
 };
@@ -22,16 +23,16 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   progressBar: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     width: 300,
     height: 10,
-    backgroundColor: "#E0E0E0",
+    backgroundColor: '#E0E0E0',
     borderRadius: 10,
   },
   progress: {
-    height: "100%",
-    backgroundColor: "#24B874",
+    height: '100%',
+    backgroundColor: '#24B874',
     borderRadius: 10,
   },
   star: {
@@ -41,11 +42,11 @@ const styles = StyleSheet.create({
   },
 
   leftText: {
-    alignItems: "left",
+    alignItems: 'left',
     marginBottom: 5,
   },
   rightText: {
-    alignItems: "right",
+    alignItems: 'right',
     marginBottom: 10,
     marginTop: 5,
   },

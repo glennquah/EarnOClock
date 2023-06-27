@@ -11,7 +11,7 @@ const ThisWeeksPoints = () => {
         />
       </View>
       <View style={styles.rightContainer}>
-        <Text style={styles.totalPointsLabel}>This week's stars</Text>
+        <Text style={styles.totalPointsLabel}>Total Number of Points</Text>
         <Text style={styles.totalPointsValue}>20</Text>
       </View>
     </View>
@@ -20,8 +20,8 @@ const ThisWeeksPoints = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 16,
     backgroundColor: "#D2B48C",
   },
@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
   },
   totalPointsLabel: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 8,
   },
   totalPointsValue: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
 

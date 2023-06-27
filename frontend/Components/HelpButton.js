@@ -6,14 +6,14 @@ import companyLogo from "../assets/starbucks.png";
 const HelpButton = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.background} />
+      <Text style={styles.background}/>
       <Text style={styles.title}>We Need Help</Text>
       <ShiftButton
-        logo={companyLogo}
-        branch="JEM"
-        role="Starbucks      "
-        date="June 21, 2023"
-        timing="09:00 - 17:00 | 8h"
+          logo={companyLogo}
+          branch="JEM"
+          role="Starbucks      "
+          date="June 21, 2023"
+          timing="09:00 - 17:00 | 8h"
       />
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Barista</Text>
@@ -26,11 +26,11 @@ const HelpButton = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    alignItems: "center",
+    alignItems: 'center',
   },
   title: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
     alignSelf: "flex-start",
   },
@@ -44,18 +44,18 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 12,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   subText: {
     color: "white",
     fontSize: 10,
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: 5,
   },
 
   background: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
