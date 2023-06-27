@@ -5,9 +5,9 @@ import {
   Text,
   View,
   Image,
-  SafeAreaView,
   TouchableOpacity,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import NavigationBar from "../Components/NavBar";
 import ProfileBar from "../Components/ProfileBar";
@@ -66,7 +66,10 @@ const CheckInScreen = () => {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("CheckOut")}
+          >
             <Text style={styles.buttonText}>CHECK IN</Text>
           </TouchableOpacity>
         </View>

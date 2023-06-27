@@ -8,7 +8,7 @@ const ProgressBar = ({totalPoints, goalPoints}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.leftText}>Total No of Points: {goalPoints}</Text>
+      <Text style={styles.leftText}>Total No of Stars: {goalPoints}</Text>
       <View style={styles.progressBar}>
         <View style={[styles.progress, { width: `${progress}%` }]} />
         <Image source={require('./assets/star.png')} style={styles.star} />

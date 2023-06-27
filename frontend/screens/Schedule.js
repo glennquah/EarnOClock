@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Calendar from "../Components/Calendar";
 import NavigationBar from "../Components/NavBar";
-import { useNavigation } from "@react-navigation/native";
+import ProfileBar from "../Components/ProfileBar";
 
 // Import the ShiftButton component
 import ShiftButton from "../Components/ShiftButton";
@@ -12,14 +14,14 @@ const ScheduleScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaView}>
+      <ProfileBar navigation={navigation} />
       <View style={styles.background}>
-        <Calendar style={styles.calendar}> </Calendar>
+        <Calendar style={styles.calendar} />
         <View style={styles.container}>
-          <Text style={styles.backgroundShape}> </Text>
+          <Text style={styles.backgroundShape} />
           <Text style={styles.header}> My Shifts </Text>
 
           <View style={styles.buttonContainer}>
-            {/* Example usage of the ShiftButton component */}
             <ShiftButton
               logo={companyLogo}
               branch="Starbucks - Jem"
@@ -43,12 +45,10 @@ const ScheduleScreen = () => {
               date="June 22, 2023"
               timing="12:00 - 19:00 | 7h"
             />
-
-            {/* Add more ShiftButton components as needed */}
           </View>
         </View>
-        <NavigationBar navigation={navigation} />
       </View>
+      <NavigationBar navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: "center", // vertical alignment
-    alignItems: "center", // horizontal alignment
-    backgroundColor: "#D2B48C",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#D2B48C", 
   },
 
   backgroundShape: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: "#FFFFFF", // Set your desired background shape color
+    backgroundColor: "#FBF7EF", 
     shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,
@@ -84,12 +84,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "left",
+    alignItems: "flex-start",
     paddingBottom: 20,
-    fontFamily: "Inter",
+    color: "#333333",
   },
 
   container: {
+    backgroundColor: "#FBF7EF",
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
@@ -102,9 +103,9 @@ const styles = StyleSheet.create({
   },
 
   calendar: {
-    width: "100%",
-    marginBottom: 20,
-  },
+    width: "80%", 
+    height: 200, 
+  },  
 });
 
 export default ScheduleScreen;

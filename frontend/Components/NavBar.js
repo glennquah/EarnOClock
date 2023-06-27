@@ -1,4 +1,3 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -45,14 +44,14 @@ const styles = StyleSheet.create({
   },
   bottomBar: {
     flexDirection: "row",
-    justifyContent: "space-around", // Space the buttons evenly
+    justifyContent: "space-around", 
     alignItems: "center",
     borderTopWidth: 1,
     borderColor: "#ccc",
     paddingTop: 8,
   },
   bottomBarButton: {
-    flex: 1, // Equal flex distribution for all buttons
+    flex: 1, 
     paddingVertical: 8,
     alignItems: "center",
   },

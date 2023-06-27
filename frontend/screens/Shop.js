@@ -1,50 +1,51 @@
-import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from "react-native";
-import NavigationBar from "../Components/NavBar";
 import { useNavigation } from "@react-navigation/native";
-import ProfileBar from "../Components/ProfileBar";
-import Icon from "react-native-vector-icons/Ionicons";
-import Icon2 from "react-native-vector-icons/Feather";
+import React from "react";
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-
+import Icon2 from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/Ionicons";
+import NavigationBar from "../Components/NavBar";
+import ProfileBar from "../Components/ProfileBar";
 
 const ShopScreen = () => {
   const navigation = useNavigation();
+  const starbucksSource = require("../assets/starbucks.png");
+  const starsSource = require("../assets/star.png");
 
   const MidBar = () => {
     return (
       <View style={[styles.midBar, styles.shadowProp]}>
-            <TouchableOpacity
-              style={styles.barButton}
-              onPress={() => navigation.navigate("Home")}
-            >
-              <Icon2 name="target" size={24} style={styles.icon} />
-              <Text style={styles.barButtonText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.barButton}
-              onPress={() => navigation.navigate("Shop")}
-            >
-              <Icon2 name="gift" size={24} style={styles.icon} />
-              <Text style={styles.barButtonText}>Shop</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.barButton}
-              onPress={() => navigation.navigate("Schedule")}
-            >
-              <Icon name="receipt-outline" size={24} style={styles.icon} />
-              <Text style={styles.barButtonText}>Schedule</Text>
-            </TouchableOpacity>
-          </View>
+        <TouchableOpacity
+          style={styles.barButton}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Icon2 name="target" size={24} style={styles.icon} />
+          <Text style={styles.barButtonText}>Goal</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.barButton}
+          onPress={() => navigation.navigate("Shop")}
+        >
+          <Icon2 name="gift" size={24} style={styles.icon} />
+          <Text style={styles.barButtonText}>Rewards</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.barButton}
+          onPress={() => navigation.navigate("Shop")}
+        >
+          <Icon name="receipt-outline" size={24} style={styles.icon} />
+          <Text style={styles.barButtonText}>History</Text>
+        </TouchableOpacity>
+      </View>
     );
-  }
+  };
 
-  const TransactionHistory = [
+  const TransactionHistoryInfo = [
     {
       id: '1',
       title: 'Starbucks Jurong Point',
       date: '4 June 2023 | 15:00-20:00',
-      image: 'https://picsum.photos/200',
+      image: starbucksSource,
       stars: '+8'
     },
     {
@@ -68,30 +69,40 @@ const ShopScreen = () => {
       image: 'https://picsum.photos/200',
       stars: '+10'
     }, 
-  ]
+  ];
 
   const renderItem = ({ item }) => (
     <View style={styles.activityItem}>
-      <Image source={{ uri: item.image }} style={styles.logo} />
-      <View style={styles.activityText}>
-        <Text style={styles.activityTitle}>{item.title}</Text>
-        <Text style={styles.activityDate}>{item.date}</Text>
+      <View style={styles.itemContainer}>
+        <Image source={starbucksSource} style={styles.logo} />
+        <View style={styles.activityText}>
+          <Text style={styles.activityTitle}>{item.title}</Text>
+          <Text style={styles.activityDate}>{item.date}</Text>
+        </View>
       </View>
       <View style={styles.activityStars}>
         <Text style={styles.stars}>{item.stars}</Text>
+        <Image source={starsSource} style={styles.starlogo} />
       </View>
     </View>
   );
+  
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <ProfileBar navigation={navigation} />
       <View style={styles.container}>
-        <Image source={{ uri: 'https://picsum.photos/400' }} style={styles.backgroundImage} />
+        <Image source={{ uri: 'https://globalassets.starbucks.com/assets/92a2acfde0d74350bae518afe9928fea.jpg' }} style={styles.backgroundImage} />
         <MidBar /> 
         <View style={styles.whiteBox}>
+          <Text style={styles.title}>Recent Activity</Text>
           <View style={styles.history}>
-            <FlatList data={TransactionHistory} renderItem={renderItem} keyExtractor={item => item.id} contentContainerStyle={styles.flatListContent}/>
+            <FlatList
+              data={TransactionHistoryInfo}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              contentContainerStyle={styles.flatListContent}
+            />
           </View>
         </View>
       </View>
@@ -108,25 +119,26 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: "center",
-    backgroundColor: "#FBF7EF",
+    backgroundColor: "#D2B48C",
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
     width: '100%',
+    height: '100%', // Set the height to 100%
   },
   whiteBox: {
-    backgroundColor: '#FBF7EF',
+    backgroundColor: '#D2B48C',
     width: '100%',
     height: '70%',
     borderRadius: 10,
-    marginTop: 10,
+    // Remove marginTop: 10
   },
   history: {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '80%',
+    // Remove width: '80%'
     height: '90%',
     alignSelf: 'center',
     marginTop: 10,
@@ -166,10 +178,15 @@ const styles = StyleSheet.create({
   activityItem: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     margin: 10,
     padding: 10,
     flex: 1,
-    width: '100%',
+    width: '80%',
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   logo: {
     width: 60,
@@ -177,17 +194,42 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 1000,
   },
-  activityText: {
+  starlogo: {
+    width: 16,
+    height: 16,
+    marginLeft: 5,
+    alignItems: 'right',
   },
-  activityTitle: {
+  activityStars: {
+    flexDirection: 'row',
+    alignItems: 'right',
   },
-  activityDate: {
-  },
-  stars: {
-  },
+  activityText: {},
+  activityTitle: {},
+  activityDate: {},
+  stars: {},
   flatListContent: {
     flexGrow: 1,
   },
+  separator: {
+    height: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    marginHorizontal: 20,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#DDDDDD',
+    marginTop: 10,
+    alignSelf: 'flex-end',
+    width: '80%',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 10,
+    alignSelf: "flex-start",
+    marginLeft: 20, // Add marginLeft: 20 to align with the container
+  }
 });
 
 export default ShopScreen;

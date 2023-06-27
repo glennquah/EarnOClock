@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import ShiftButton from './ShiftButton';
-import companyLogo from './assets/starbucks.png';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import ShiftButton from "../Components/ShiftButton";
+import companyLogo from "../assets/starbucks.png";
 
 const HelpButton = () => {
   return (
@@ -32,22 +32,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    alignSelf: "flex-start",
   },
 
   button: {
-    backgroundColor: '#EAEAEA',
+    backgroundColor: "#00704A",
     paddingVertical: 5,
     paddingHorizontal: 117,
     borderRadius: 30,
   },
   buttonText: {
-    color: '#000000',
+    color: "white",
     fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   subText: {
-    color: '#000000',
+    color: "white",
     fontSize: 10,
     textAlign: 'center',
     marginTop: 5,
@@ -60,8 +61,8 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-    backgroundColor: '#FFFFFF', // Set your desired background shape color
-    shadowColor: '#555555',
+    backgroundColor: "#FFFFFF", 
+    shadowColor: "#555555",
     shadowOpacity: 0.5,
     shadowRadius: 5,
     transform: [{ translateY: 0 }],

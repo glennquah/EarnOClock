@@ -11,27 +11,12 @@ import RegisterPage from "./screens/Register";
 import ScheduleScreen from "./screens/Schedule";
 import ShopScreen from "./screens/Shop";
 
-//import Amplify from "aws-amplify";
-//import config from "./src/aws-exports";
-
-//Amplify.configure(config);
-
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-          name="CheckOut"
-          component={CheckOutScreen}
-          options={{ title: "CheckOut" }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Home" }}
-        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -42,7 +27,7 @@ const App = () => {
           component={RegisterPage}
           options={{ title: "Register" }}
         />
-                <Stack.Screen
+        <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: "Home" }}
@@ -58,14 +43,19 @@ const App = () => {
           options={{ title: "Schedule" }}
         />
         <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ title: "Profile" }}
+        />
+        <Stack.Screen
           name="CheckIn"
           component={CheckInScreen}
           options={{ title: "CheckIn" }}
         />
         <Stack.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{ title: "Profile" }}
+          name="CheckOut"
+          component={CheckOutScreen}
+          options={{ title: "CheckOut" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
