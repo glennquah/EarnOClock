@@ -31,8 +31,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [References](#references)
-- [More Images](#more-images)
+- [References](#software-architecture)
 
 <!-- ABOUT THE PROJECT -->
 
@@ -129,4 +128,8 @@ Project Link: [https://github.com/tallkoh/EarnOClock/](https://github.com/tallko
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- References -->
+<!-- Software Architecture -->
+
+## Software Architecture
+<img src="https://github.com/tallkoh/EarnOClock/assets/74520346/cae32501-9703-460d-903b-150b3aff496e">
+
