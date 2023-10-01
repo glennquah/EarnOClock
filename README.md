@@ -58,7 +58,6 @@ We understand that keeping track of multiple schedules, ensuring punctuality, an
 <a href="#built-with"></a>
 
 - [React Native](https://reactnative.dev/)
-- [Firebase](https://supabase.com)
 - [Amazon Web Service](https://aws.amazon.com)
 - [Figma](https://www.figma.com)
 
