@@ -70,7 +70,7 @@ We understand that keeping track of multiple schedules, ensuring punctuality, an
 
 [Figma Prototype](https://www.figma.com/proto/vSWFqi4EnuINYNo7jMFCLK/Earn-O'Clock?node-id=262-1537&scaling=scale-down&page-id=0%3A1&starting-point-node-id=262%3A1544&show-proto-sidebar=1&mode=design)
 
-[App Prototype] - Fork project & run it on expo
+App Prototype : Fork project & run it on expo
 
 ## Roadmap
 
