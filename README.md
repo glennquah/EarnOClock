@@ -29,7 +29,7 @@
 - [Getting Started](#getting-started)
 - [Roadmap](#roadmap)
 - [Contact](#contact)
-- [References](#software-architecture)
+- [Software Architecture](#software-architecture)
 
 <!-- ABOUT THE PROJECT -->
 
